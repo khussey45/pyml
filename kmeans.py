@@ -7,7 +7,7 @@ from sklearn import metrics
 
 digits = load_digits()
 data = scale(digits.data)
-y = data.targets
+y = digits.target
 
 k = 10 
 samples, features = data.shape
@@ -23,5 +23,5 @@ def bench_k_means(estimator, name, data):
              metrics.adjusted_mutual_info_score(y, estimator.labels_),
              metrics.silhouette_score(data, estimator.labels_,
                     metric='euclidean')))                 
-             
-
+clf =  KMeans (n_clusters=k, init="random", n_init=10 )
+bench_k_means(clf, "1", data)
