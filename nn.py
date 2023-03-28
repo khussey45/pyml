@@ -7,3 +7,8 @@ data = keras.datasets.fashion_mnist
 
 (train_images, train_labels), (test_images, test_labels) = data.load_data()
 
+class_name = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt','Sneaker', 'Bag', 'Ankle boot']
+
+plt.imshow(train_images[7], cmap=plt.cm.binary)
+plt.show()
+
