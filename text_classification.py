@@ -52,11 +52,28 @@ def decode_review(text):
 
 # model.save("model.h5")
 
+def review_encode(s):
+    encoded = [1]
+
+    for word in s:
+        if word.lower() in word_index:
+            encoded.append(word_index[word.lower()])
+        else: 
+            encoded.append(2)
+
+    return encoded 
+
 model = keras.models.load_model("model.h5")
 
 with open("test.txt", encoding="utf-8") as f:
     for line in f.readline():
-        nline = line.replace(",", "").replace(",", "").replace(",", "").replace(",", "")
+        nline = line.replace(",", "").replace(".", "").replace("(", "").replace(")", "").replace(":","").replace("\"","").strip().split(" ")
+        encode = review_encode(nline) 
+        encode = keras.preprocessing.sequence.pad_sequences([encode], value=word_index["<PAD>"], padding="post", maxlen=250) 
+        predict = model.predict(encode)
+        print(line)
+        print(encode)
+        print(predict[0])
 
 # test_review = test_data[0]
 # predict = model.predict([test_review])
