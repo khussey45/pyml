@@ -75,10 +75,10 @@ with open("test.txt", encoding="utf-8") as f:
         print(encode)
         print(predict[0])
 
-# test_review = test_data[0]
-# predict = model.predict([test_review])
-# print("Review: ")
-# print(decode_review(test_review))
-# print("Prediction: " + str(predict[0]))
-# print("Actual: " + str(test_labels[0]))
-# print(results)
+test_review = test_data[0]
+predict = model.predict([test_review])
+print("Review: ")
+print(decode_review(test_review))
+print("Prediction: " + str(predict[0]))
+print("Actual: " + str(test_labels[0]))
+print(results)
