@@ -211,7 +211,7 @@ def main():
         draw_window(win, bird, pipes, base,score)
                 
                 
-    pygame.quit()
-    quit()
+#     pygame.quit()
+#     quit()
 
-main()
+# main()
